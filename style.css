@@ -1,0 +1,15 @@
+body {
+	margin: 0;	
+}
+
+.header_text {
+	margin-top: 0;
+}
+
+.header_text_wrapper {
+	color: darkgreen;
+	text-align: center;
+	font-family: 'Aldrich', sans-serif;
+	margin-top: 2em;
+}
+
