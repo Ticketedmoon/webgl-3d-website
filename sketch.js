@@ -15,14 +15,12 @@ function preExecute() {
 function setup() {
 	// Put setup code here
 	preExecute();
-	canvas = createCanvas(540, 400, WEBGL);
-	centreCanvas(canvas);
+	canvas = createCanvas(200, 200, WEBGL);
+	canvas.parent('sketch-holder');
 }
 
 // Draw function, called constantly.
 function draw() {
-	// Default code
-	background(51);
 
 	// Translates
 	translate(0, 0, 0);
@@ -32,29 +30,20 @@ function draw() {
 	rotateY(angle);
 	rotateZ(angle);
 
-	// Lights
-	let dX = -1
-	let dY = 0
-	let v = createVector(dX, dY, 0);
+	// Vectors
+	let v = createVector(-1, 0, 0);
+	let x = createVector(1, 0, 0)
 	v.normalize();
-	directionalLight(180, 120, 0, v);
+
+	// Lights
+	directionalLight(30, 120, 0, v);
+	directionalLight(30, 150, 10, x);
+
 
 	// Materials
 
 	// 3D Objects
-	sphere(radius) // Creates a sphere in 3D space.
+	box(80, 80, 80) // Creates a sphere in 3D space.
 
-	angle += 0.02;
-}
-
-// Refactoring, move all positioning into function
-function centreCanvas(canvas) {
-	canvas.style('display', 'block');
-  	var x = (windowWidth - width) / 2;
-  	var y = (windowHeight - height) / 2;
-  	canvas.position(x, y);
-}
-
-function windowResized() {
-	centreCanvas(canvas);
+	angle += 0.01;
 }
